@@ -18,7 +18,7 @@ const products = [
     image:
       "https://ma.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/34/749166/1.jpg?4766",
     second_image:
-      "https://images.unsplash.com/photo-1618751417038-8b6c0a3a8c5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/34/749166/2.jpg?4766",
     description: "Ultra-fast 67W charging for your smartphones and tablets with multiple safety features.",
     price: "100 MAD",
     original_price: "120 MAD",
