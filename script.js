@@ -3,7 +3,7 @@ const products = [
   {
     name: "Oraimo Wireless Earbuds",
     image:
-      "https://images.unsplash.com/photo-1606220838315-056192d5e927?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://cdn-img.oraimo.com/fit-in/600x600/CI/product/2024/09/02/330S-oraimofreepodsneo-680-12.jpg",
     second_image:
       "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Premium wireless earbuds with active noise cancellation and 30-hour battery life.",
@@ -16,7 +16,7 @@ const products = [
   {
     name: "Mi Fast Charger 67W",
     image:
-      "https://images.unsplash.com/photo-1583863788434-e58a36330cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://ma.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/34/749166/1.jpg?4766",
     second_image:
       "https://images.unsplash.com/photo-1618751417038-8b6c0a3a8c5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Ultra-fast 67W charging for your smartphones and tablets with multiple safety features.",
