@@ -1,4 +1,4 @@
-// Product data
+// Update the products array to include original_price for promotional pricing
 const products = [
   {
     name: "Oraimo Wireless Earbuds",
@@ -8,6 +8,7 @@ const products = [
       "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Premium wireless earbuds with active noise cancellation and 30-hour battery life.",
     price: "200 MAD",
+    original_price: "250 MAD",
     badge: "Bestseller",
     category: "audio",
     path: "oraimo-wireless-earbuds",
@@ -20,6 +21,7 @@ const products = [
       "https://images.unsplash.com/photo-1618751417038-8b6c0a3a8c5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Ultra-fast 67W charging for your smartphones and tablets with multiple safety features.",
     price: "100 MAD",
+    original_price: "120 MAD",
     badge: "New",
     category: "chargers",
     path: "mi-fast-charger-67w",
@@ -32,6 +34,7 @@ const products = [
       "https://images.unsplash.com/photo-1589003077984-894e133dabab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Compact waterproof speaker with powerful bass and 12-hour playback time.",
     price: "180 MAD",
+    original_price: "220 MAD",
     badge: "Hot Deal",
     category: "speakers",
     path: "portable-bluetooth-speaker",
@@ -44,6 +47,7 @@ const products = [
       "https://images.unsplash.com/photo-1612444530582-fc66183b16f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Premium gaming headset with surround sound and noise-cancelling microphone.",
     price: "250 MAD",
+    original_price: "300 MAD",
     badge: "Gaming",
     category: "audio",
     path: "wireless-gaming-headset",
@@ -56,6 +60,7 @@ const products = [
       "https://images.unsplash.com/photo-1588141253684-8ebd4f5da292?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Durable braided USB-C cable with fast data transfer and quick charging support.",
     price: "50 MAD",
+    original_price: "65 MAD",
     badge: null,
     category: "chargers",
     path: "usb-c-fast-charging-cable",
@@ -68,9 +73,88 @@ const products = [
       "https://images.unsplash.com/photo-1619489646924-b4fce76b2c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Compact power bank with wireless charging capability and dual USB ports.",
     price: "150 MAD",
+    original_price: "180 MAD",
     badge: "Bestseller",
     category: "chargers",
     path: "wireless-power-bank-10000mah",
+  },
+  {
+    name: "OTG USB to Type-C Adapter",
+    image:
+      "https://images.unsplash.com/photo-1625895197185-efcec01cffe0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1625895197400-d13c1d5a7871?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "Connect USB devices to your Type-C smartphone or tablet with this compact adapter.",
+    price: "30 MAD",
+    original_price: "45 MAD",
+    badge: "Essential",
+    category: "adapters",
+    path: "otg-usb-to-type-c-adapter",
+  },
+  {
+    name: "TWS Bluetooth Earphones",
+    image:
+      "https://images.unsplash.com/photo-1606741965429-8d76ff50bb2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1631176093617-e1b9d873e3ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "True wireless stereo earphones with touch controls and premium sound quality.",
+    price: "120 MAD",
+    original_price: "150 MAD",
+    badge: "Popular",
+    category: "audio",
+    path: "tws-bluetooth-earphones",
+  },
+  {
+    name: "HDMI to VGA Converter",
+    image:
+      "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1629131726476-7d6c8618b5a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "Connect your modern HDMI devices to older VGA displays with this reliable converter.",
+    price: "80 MAD",
+    original_price: "95 MAD",
+    badge: null,
+    category: "adapters",
+    path: "hdmi-to-vga-converter",
+  },
+  {
+    name: "USB Hub 4-Port",
+    image:
+      "https://images.unsplash.com/photo-1618410320345-35c2de174823?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1618410320265-9524582dc252?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "Expand your connectivity with this 4-port USB hub, perfect for laptops and desktops.",
+    price: "60 MAD",
+    original_price: "75 MAD",
+    badge: null,
+    category: "adapters",
+    path: "usb-hub-4-port",
+  },
+  {
+    name: "Wireless Mouse",
+    image:
+      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1615663245289-2e7e6e85e1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "Ergonomic wireless mouse with adjustable DPI and silent clicking for comfortable use.",
+    price: "70 MAD",
+    original_price: "90 MAD",
+    badge: null,
+    category: "accessories",
+    path: "wireless-mouse",
+  },
+  {
+    name: "Phone Tripod Stand",
+    image:
+      "https://images.unsplash.com/photo-1609034227505-5876f6aa4e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    second_image:
+      "https://images.unsplash.com/photo-1609034227937-50cc00ccc7b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    description: "Flexible tripod stand for smartphones with Bluetooth remote for perfect photos and videos.",
+    price: "45 MAD",
+    original_price: "60 MAD",
+    badge: "Photography",
+    category: "accessories",
+    path: "phone-tripod-stand",
   },
 ]
 
@@ -257,7 +341,7 @@ function loadProducts() {
   lucide.createIcons()
 }
 
-// Create Product Card
+// Update the createProductCard function to show both original and discounted prices
 function createProductCard(product, delay) {
   const messageText = encodeURIComponent(`I want to buy ${product.name} from Mghila Electronics`)
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${messageText}`
@@ -293,8 +377,12 @@ function createProductCard(product, delay) {
     </div>
     
     <div class="flex justify-between items-center mt-4">
-      <div class="bg-indigo-100 px-4 py-2 rounded">
-        <span class="text-lg font-bold text-indigo-600">${product.price}</span>
+      <div class="flex flex-col">
+        <div class="bg-indigo-100 px-4 py-2 rounded">
+          <span class="text-lg font-bold text-indigo-600">${product.price}</span>
+          ${product.original_price ? `<span class="text-sm text-gray-500 line-through ml-2">${product.original_price}</span>` : ''}
+        </div>
+        ${product.original_price ? `<span class="text-xs text-green-600 mt-1 font-medium">Save ${calculateDiscount(product.price, product.original_price)}%</span>` : ''}
       </div>
       
       <a 
@@ -343,6 +431,19 @@ function createProductCard(product, delay) {
   })
 
   return card
+}
+
+// Add a function to calculate discount percentage
+function calculateDiscount(currentPrice, originalPrice) {
+  const current = parseFloat(currentPrice.replace(/[^0-9.]/g, ''));
+  const original = parseFloat(originalPrice.replace(/[^0-9.]/g, ''));
+  
+  if (original > current) {
+    const discount = Math.round(((original - current) / original) * 100);
+    return discount;
+  }
+  
+  return 0;
 }
 
 // Initialize Filters
@@ -523,3 +624,13 @@ window.addEventListener("resize", () => {
 function getProductsData() {
   return JSON.stringify(products)
 }
+
+// Inside the loadProducts function, update the categoryFilter options
+categoryFilter.innerHTML = `
+  <option value="all">All Categories</option>
+  <option value="audio">Audio</option>
+  <option value="chargers">Chargers</option>
+  <option value="speakers">Speakers</option>
+  <option value="adapters">Adapters</option>
+  <option value="accessories">Accessories</option>
+`
