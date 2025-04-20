@@ -40,9 +40,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <!-- Custom Styles -->
     <style>
         /* Custom animations */
@@ -121,16 +118,6 @@
             visibility: hidden;
         }
 
-        /* 3D Animation Canvas */
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
         /* Product image gallery */
         .image-gallery {
             display: flex;
@@ -154,6 +141,29 @@
 
         .thumbnail:hover {
             transform: scale(1.05);
+        }
+        
+        /* Promotional pricing styles */
+        .price-tag {
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .discount-badge {
+            background-color: #10b981;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
@@ -245,13 +255,15 @@
         </ul>
     </div>
 
-    <!-- Hero Section with 3D Animation -->
+    <!-- Hero Section -->
     <section class="relative flex items-center min-h-[70vh] py-16 text-center">
-        <!-- 3D Animation Canvas -->
-        <canvas id="hero-canvas"></canvas>
-
-        <!-- Dark overlay with blur effect -->
-        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <!-- Background image with overlay -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="Electronics background" class="w-full h-full object-cover" />
+            <!-- Dark overlay with blur effect -->
+            <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        </div>
 
         <!-- Content -->
         <div class="relative z-10 container mx-auto px-4">
@@ -357,44 +369,6 @@
                         <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                     </button>
                 </nav>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3D Product Showcase -->
-    <section class="py-16 bg-gradient-to-b from-gray-100 to-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12 animated-hidden" data-animation="animate__fadeIn">
-                <h2 class="font-orbitron text-3xl text-primary mb-2">3D Product Showcase</h2>
-                <div class="h-1 w-16 bg-secondary mx-auto mb-4"></div>
-                <p class="text-gray-500 max-w-2xl mx-auto">
-                    Experience our products in 3D - rotate and explore from every angle
-                </p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <div class="w-full md:w-1/2 h-[400px] bg-gray-100 rounded-lg shadow-md relative overflow-hidden">
-                    <canvas id="product-canvas" class="w-full h-full"></canvas>
-                    <div class="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-600">
-                        Drag to rotate | Scroll to zoom
-                    </div>
-                </div>
-                
-                <div class="w-full md:w-1/2 animated-hidden" data-animation="animate__fadeInRight">
-                    <h3 class="text-2xl font-bold mb-4 font-orbitron text-gray-800">Interactive Experience</h3>
-                    <p class="text-gray-600 mb-6">
-                        Our 3D product viewer allows you to examine products from every angle before making a purchase. 
-                        Rotate, zoom, and explore the details as if you were holding the product in your hands.
-                    </p>
-                    <div class="flex gap-4">
-                        <button id="product-prev" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition-colors">
-                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                        </button>
-                        <button id="product-next" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition-colors">
-                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -522,7 +496,6 @@
         lucide.createIcons();
     </script>
     <script src="script.js"></script>
-    <script src="3d-animations.js"></script>
 </body>
 
 </html>
