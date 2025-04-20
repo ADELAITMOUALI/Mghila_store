@@ -5,7 +5,7 @@ const products = [
     image:
       "https://cdn-img.oraimo.com/fit-in/600x600/CI/product/2024/09/02/330S-oraimofreepodsneo-680-12.jpg",
     second_image:
-      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://cdn-img.oraimo.com/fit-in/600x600/KE/product/2024/06/20/OTW-330S-black.png",
     description: "Premium wireless earbuds with active noise cancellation and 30-hour battery life.",
     price: "200 MAD",
     original_price: "250 MAD",
