@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mghila Electronics - Modern Electronics Store</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#f59e0b',
+                        dark: '#111827',
+                        light: '#f9fafb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        arabic: ['Noto Sans Arabic', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'rotate-y': 'rotateY 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #4f46e5, 0 0 10px #4f46e5, 0 0 15px #4f46e5' },
+                            '100%': { boxShadow: '0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        rotateY: {
+                            '0%': { transform: 'rotateY(0deg)' },
+                            '100%': { transform: 'rotateY(360deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Custom animations */
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.15), 0 10px 10px -5px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Custom gradient text animation */
+        .gradient-text {
+            background-image: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        /* Gaming-style hero animations */
+        .hero-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-icon:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .floating-icon:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+        .floating-icon:nth-child(5) { top: 50%; left: 5%; animation-delay: 4s; }
+        .floating-icon:nth-child(6) { top: 60%; right: 5%; animation-delay: 5s; }
+
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #4f46e5, #8b5cf6);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particle-float 8s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Gaming button effect */
+        .gaming-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, #4f46e5, #8b5cf6);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .gaming-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .gaming-button:hover::before {
+            left: 100%;
+        }
+
+        /* WhatsApp float animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Loading animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            min-height: 300px;
+            border-radius: 0.5rem;
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+            background-size: 1000px 100%;
+        }
+
+        /* Image zoom effect */
+        .zoom-effect {
+            transition: transform 0.7s ease;
+        }
+
+        .zoom-container:hover .zoom-effect {
+            transform: scale(1.1);
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* For Animate.css scroll reveal */
+        .animated-hidden {
+            visibility: hidden;
+        }
+
+        /* Product image gallery */
+        .image-gallery {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail.active {
+            border-color: #4f46e5;
+            transform: scale(1.05);
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+            border-color: #8b5cf6;
+        }
+        
+        /* Mobile-first responsive grid */
+        @media (max-width: 768px) {
+            .products-mobile-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .product-card-mobile {
+                max-width: 100%;
+            }
+            
+            .product-card-mobile .card-content {
+                padding: 12px;
+            }
+            
+            .product-card-mobile h3 {
+                font-size: 14px;
+                line-height: 1.3;
+                margin-bottom: 8px;
+            }
+            
+            .product-card-mobile p {
+                font-size: 12px;
+                line-height: 1.4;
+                margin-bottom: 8px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            
+            .mobile-button {
+                padding: 8px 12px;
+                font-size: 12px;
+                border-radius: 6px;
+            }
+            
+            .mobile-price {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+
+        /* Product numbering badge */
+        .product-number {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(79, 70, 229, 0.9);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        /* Language switcher */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* RTL support */
+        [dir="rtl"] {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        [dir="rtl"] .gradient-text {
+            background-image: linear-gradient(135deg, #8b5cf6, #4f46e5);
+        }
+
+        /* Negotiable price styling */
+        .negotiable-price {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Button animations */
+        .btn-animate {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-animate:active {
+            transform: translateY(0);
+        }
+
+        /* Page transition */
+        .page-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .page-transition.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About modal */
+        .about-modal {
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hero title animation */
+        .hero-title {
+            background: linear-gradient(45deg, #4f46e5, #8b5cf6, #ec4899, #f59e0b);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient-shift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 3D effect for icons */
+        .icon-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-3d:hover {
+            transform: rotateY(180deg) scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans overflow-x-hidden page-transition">
+    <!-- About Modal -->
+    <div id="aboutModal" class="fixed inset-0 bg-black/60 about-modal z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4 animate__animated animate__fadeIn">
+            <div class="text-center">
+                <button onclick="closeAboutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-primary to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="info" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4" data-translate="about-us">About Us</h2>
+                </div>
+                
+                <div class="text-gray-600 space-y-4 text-left">
+                    
+                    
+                    <div class="bg-gradient-to-r from-blue-50 to-teal-50 p-4 rounded-lg border-l-4 border-teal-500">
+                        <h3 class="font-semibold text-gray-800 mb-2" data-translate="our-mission">Our Mission</h3>
+                        <p class="text-sm" data-translate="mission-text">
+                            Empowering university students in Beni Mellal with affordable, high-quality electronics and technology solutions to support their academic journey and digital lifestyle.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 text-green-700 mb-2">
+                                <i data-lucide="truck" class="w-4 h-4"></i>
+                                <span class="font-semibold text-sm" data-translate="campus-delivery">Campus Delivery</span>
+                            </div>
+                            <p class="text-green-600 text-xs" data-translate="delivery-service">Direct delivery to university dormitories (حي جامعي)</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 text-purple-700 mb-2">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                                <span class="font-semibold text-sm" data-translate="student-focused">Student-Focused</span>
+                            </div>
+                            <p class="text-purple-600 text-xs" data-translate="student-service">Run by students, for students</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 text-orange-700 mb-2">
+                                <i data-lucide="tag" class="w-4 h-4"></i>
+                                <span class="font-semibold text-sm" data-translate="affordable-prices">Affordable Prices</span>
+                            </div>
+                            <p class="text-orange-600 text-xs" data-translate="price-service">Student-friendly pricing on all products</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-3 rounded-lg">
+                            <div class="flex items-center gap-2 text-blue-700 mb-2">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span class="font-semibold text-sm" data-translate="whatsapp-support">WhatsApp Support</span>
+                            </div>
+                            <p class="text-blue-600 text-xs" data-translate="support-service">24/7 assistance via WhatsApp</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center pt-2">
+                        <p class="text-sm text-gray-500" data-translate="serving-students">
+                            Proudly serving the student community of Beni Mellal
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative max-w-4xl mx-auto p-4">
+            <button class="absolute top-2 right-2 text-white hover:text-secondary transition-colors"
+                onclick="closeImageModal()">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <img id="modalImage" class="max-h-[80vh] max-w-full animate__animated animate__zoomIn" alt="Product image">
+            <div id="modalCaption" class="text-white text-center mt-4 text-xl"></div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-white sticky top-0 left-0 right-0 shadow-sm z-40 backdrop-blur-sm bg-white/90">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <span class="font-orbitron text-xl md:text-2xl font-bold text-primary hover:text-purple-600 transition-colors">
+                        MghilaStore
+                    </span>
+                </a>
+
+                <!-- Language Switcher & Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="language-switcher">
+                        <button onclick="toggleLanguage()" 
+                                class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                            <span id="currentLang" class="text-sm font-medium">EN</span>
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    
+                    <nav>
+                        <ul class="flex gap-8">
+                            <li>
+                                <a href="#products"
+                                    class="font-medium py-2 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
+                                    data-translate="products">
+                                    Products
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#features"
+                                    class="font-medium py-2 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
+                                    data-translate="features">
+                                    Features
+                                </a>
+                            </li>
+                            <li>
+                                <button onclick="openAboutModal()"
+                                    class="font-medium py-2 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
+                                    data-translate="about">
+                                    About
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="menuToggle"
+                    class="md:hidden p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors"
+                    aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="hamburger-icon w-6 h-6"></i>
+                    <i data-lucide="x" class="close-icon w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed left-0 right-0 top-[73px] bg-white/95 backdrop-blur-sm shadow-lg z-30 transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden">
+        <ul class="py-4 px-6 max-h-[70vh] overflow-auto no-scrollbar">
+            <li class="border-b border-gray-100 py-3">
+                <div class="language-switcher mb-3">
+                    <button onclick="toggleLanguage()" 
+                            class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors w-full justify-center">
+                        <span id="currentLangMobile" class="text-sm font-medium">EN</span>
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="border-b border-gray-100 py-3">
+                <a href="#products"
+                    class="flex items-center gap-3 text-gray-800 hover:text-primary transition-colors w-full"
+                    onclick="closeMobileMenu()">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span class="font-medium" data-translate="products">Products</span>
+                </a>
+            </li>
+            <li class="border-b border-gray-100 py-3">
+                <a href="#features"
+                    class="flex items-center gap-3 text-gray-800 hover:text-primary transition-colors w-full"
+                    onclick="closeMobileMenu()">
+                    <i data-lucide="bar-chart" class="w-5 h-5"></i>
+                    <span class="font-medium" data-translate="features">Features</span>
+                </a>
+            </li>
+            <li class="py-3">
+                <button onclick="openAboutModal(); closeMobileMenu();" 
+                        class="flex items-center gap-3 text-gray-800 hover:text-primary transition-colors w-full">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                    <span class="font-medium" data-translate="about">About</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Gaming-Style Hero Section -->
+    <section class="relative flex items-center min-h-[80vh] py-16 text-center hero-container overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 z-0">
+            <!-- Background image with overlay -->
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="Electronics background" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-purple-900/50 to-black/80"></div>
+            
+            <!-- Floating Icons -->
+            <div class="floating-icon text-white">
+                <i data-lucide="smartphone" class="w-16 h-16 icon-3d"></i>
+            </div>
+            <div class="floating-icon text-white">
+                <i data-lucide="headphones" class="w-20 h-20 icon-3d"></i>
+            </div>
+            <div class="floating-icon text-white">
+                <i data-lucide="laptop" class="w-18 h-18 icon-3d"></i>
+            </div>
+            <div class="floating-icon text-white">
+                <i data-lucide="gamepad-2" class="w-16 h-16 icon-3d"></i>
+            </div>
+            <div class="floating-icon text-white">
+                <i data-lucide="camera" class="w-14 h-14 icon-3d"></i>
+            </div>
+            <div class="floating-icon text-white">
+                <i data-lucide="watch" class="w-12 h-12 icon-3d"></i>
+            </div>
+        </div>
+
+        <!-- Particle Effects -->
+        <div id="particles" class="absolute inset-0 z-1"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Main Title with Gaming Animation -->
+                <h1 class="font-orbitron text-5xl md:text-6xl lg:text-7xl mb-6 hero-title animate-slide-down">
+                    MGHILA ELECTRONICS
+                </h1>
+                
+                <!-- Subtitle with Typewriter Effect -->
+                <div class="text-xl md:text-2xl text-white mb-4 animate-slide-up">
+                    <span id="typewriter" class="border-r-2 border-white"></span>
+                </div>
+                
+                
+                
+                <!-- Gaming-Style Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in" style="animation-delay: 1.5s;">
+                    <a href="#products"
+                        class="gaming-button text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-1 flex items-center gap-3">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                        <span data-translate="explore-products">EXPLORE PRODUCTS</span>
+                        <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://api.whatsapp.com/send?phone=+212703880079&text=Hello%20Mghila%20Electronics"
+                        class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-1 flex items-center gap-3"
+                        target="_blank">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        <span>CONTACT US</span>
+                    </a>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+                    <i data-lucide="chevron-down" class="w-8 h-8 text-white"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Type Toggle -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="bg-white rounded-xl p-2 shadow-sm border">
+                    <button id="newProductsBtn" onclick="switchProductType('new')" 
+                            class="px-6 py-3 rounded-lg font-semibold transition-all btn-animate bg-primary text-white">
+                        <span data-translate="new-products">New Products</span>
+                    </button>
+                    <button id="oldProductsBtn" onclick="switchProductType('old')" 
+                            class="px-6 py-3 rounded-lg font-semibold transition-all btn-animate text-gray-600 hover:text-primary">
+                        <span data-translate="old-products">Used Products</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-12 animated-hidden" data-animation="animate__fadeIn">
+                <h2 class="font-orbitron text-3xl text-primary mb-2" data-translate="featured-products">Featured Products</h2>
+                <div class="h-1 w-16 bg-secondary mx-auto mb-4"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto" data-translate="products-subtitle">
+                    Top-rated electronics handpicked for quality and performance
+                </p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="mb-8 flex flex-col md:flex-row gap-4 justify-between">
+                <div class="flex flex-wrap gap-3">
+                    <div class="relative">
+                        <select id="categoryFilter"
+                            class="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            <option value="all" data-translate="all-categories">All Categories</option>
+                            <option value="audio">Audio</option>
+                            <option value="chargers">Chargers</option>
+                            <option value="speakers">Speakers</option>
+                            <option value="phones">Phones</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="tablets">Tablets</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative" id="priceFilterContainer">
+                        <select id="priceFilter"
+                            class="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            <option value="all" data-translate="all-prices">All Prices</option>
+                            <option value="under100">Under 100 MAD</option>
+                            <option value="100-200">100-200 MAD</option>
+                            <option value="over200">Over 200 MAD</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative" id="sortFilterContainer">
+                    <select id="sortFilter"
+                        class="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        <option value="default" data-translate="default-sorting">Default Sorting</option>
+                        <option value="priceAsc">Price: Low to High</option>
+                        <option value="priceDesc">Price: High to Low</option>
+                        <option value="nameAsc">Name: A-Z</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid"
+                class="products-mobile-grid md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 transition-opacity duration-500">
+                <!-- Loading placeholders - will be replaced by JS -->
+                <div class="shimmer"></div>
+                <div class="shimmer"></div>
+                <div class="shimmer"></div>
+                <div class="shimmer md:hidden"></div>
+                <div class="shimmer md:hidden"></div>
+                <div class="shimmer md:hidden"></div>
+                <div class="shimmer md:hidden"></div>
+                <div class="shimmer md:hidden"></div>
+            </div>
+
+            <!-- Pagination -->
+            <div id="pagination" class="flex justify-center mt-12 hidden">
+                <nav class="inline-flex rounded-md shadow">
+                    <button id="prevPage"
+                        class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 btn-animate">
+                        <i data-lucide="chevron-left" class="w-4 h-4 mr-1"></i>
+                        <span data-translate="previous">Previous</span>
+                    </button>
+                    <span id="pageInfo"
+                        class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        <span data-translate="page">Page</span> <span id="currentPage" class="font-bold mx-1">1</span> <span data-translate="of">of</span> <span id="totalPages" class="font-bold mx-1">1</span>
+                    </span>
+                    <button id="nextPage"
+                        class="relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 btn-animate">
+                        <span data-translate="next">Next</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-gradient-to-b from-transparent to-purple-600/5 py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animated-hidden" data-animation="animate__fadeIn">
+                <h2 class="font-orbitron text-3xl text-primary mb-2" data-translate="why-choose-us">Why Choose Us</h2>
+                <div class="h-1 w-16 bg-secondary mx-auto mb-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 card-hover text-center animated-hidden"
+                    data-animation="animate__fadeInUp" data-delay="0">
+                    <div class="text-4xl text-secondary mb-4 flex justify-center">
+                        <i data-lucide="home" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="dorm-delivery">Dorm Delivery</h3>
+                    <p class="text-gray-500" data-translate="dorm-delivery-desc">Delivered to your dorm room</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 card-hover text-center animated-hidden"
+                    data-animation="animate__fadeInUp" data-delay="150">
+                    <div class="text-4xl text-secondary mb-4 flex justify-center">
+                        <i data-lucide="shield" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="quality-guarantee">Quality Guarantee</h3>
+                    <p class="text-gray-500" data-translate="quality-guarantee-desc">All our products are authentic with manufacturer warranty.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 card-hover text-center animated-hidden"
+                    data-animation="animate__fadeInUp" data-delay="300">
+                    <div class="text-4xl text-secondary mb-4 flex justify-center">
+                        <i data-lucide="headphones" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-translate="support">24/7 Support</h3>
+                    <p class="text-gray-500" data-translate="support-desc">Contact us anytime via WhatsApp for assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    
+                    <div class="flex items-center gap-3 mb-4">
+    <h3 class="font-orbitron text-xl">MghilaStore</h3>
+</div>
+                    <p class="text-gray-400 mb-4" data-translate="footer-desc">Providing premium electronics for all your tech needs.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-translate="quick-links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#products"
+                                class="text-gray-400 hover:text-secondary transition-colors" data-translate="products">Products</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-secondary transition-colors" data-translate="about-us">About
+                                Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-translate="contact">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-translate="privacy">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-translate="contact-us">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-secondary"></i>
+                            <span class="text-gray-400">Beni Mellal, Morocco</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-secondary"></i>
+                            <span class="text-gray-400">+212 703880079</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-secondary"></i>
+                            <span class="text-gray-400">info@mghila-electronics.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="bg-black/50 py-6 text-center text-sm text-gray-400">
+            <p class="mb-1">&copy; 2025 Mghila Electronics. All rights reserved.</p>
+            <p>
+                <span data-translate="built-with">Built with</span>
+                <i data-lucide="heart" class="inline-block w-4 h-4 text-secondary mx-1 fill-current"></i>
+                <span data-translate="cutting-edge">and cutting-edge technology</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button (only for mobile) -->
+    <a href="https://api.whatsapp.com/send?phone=+212703880079&text=Hello%20Mghila%20Electronics,%20I'm%20interested%20in%20your%20products"
+        id="whatsappFloat"
+        class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 whatsapp-pulse transition-all duration-300 z-50 hidden btn-animate"
+        target="_blank" rel="noopener noreferrer">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
